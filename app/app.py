@@ -2,9 +2,16 @@ import os
 import streamlit as st
 import numpy as np
 import pickle
-# --- LOAD MODEL --- #
+# ---------------- LOAD MODEL ---------------- #
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(BASE_DIR, "model.pkl")
 
 with open(model_path, "rb") as f:
     w, b, mean, std, y_mean, y_std = pickle.load(f)
+
+# PAGE CONFIG #
+st.set_page_config(page_title="House Price Predictor", page_icon="🏠", layout="centered")
+
+st.title("🏠 House Price Predictor")
+st.markdown("Estimate Indian house prices using a linear regression model trained on synthetic data.")
+st.divider()
